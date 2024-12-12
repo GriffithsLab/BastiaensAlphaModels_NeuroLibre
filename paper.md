@@ -195,4 +195,4 @@ These dashboards [](#intdashboard) and [](#intdashboard2) are embedded in their 
 If you have any questions or need further assistance, please reach out to us at `info@neurolibre.org`.
 
 ### Figure matching - Justin
-1. Bastiaens2024_AlphaModels/notebooks/Eyes_closed_eyes_open.ipynb --> corresponds to Figure 8 on page 17 of the paper.
+1. Bastiaens2024_AlphaModels/notebooks/Eyes_closed_eyes_open.ipynb --> corresponds to Figure 8, part B on page 17.
