@@ -193,3 +193,6 @@ ISMRM RRSG 2020 interactive dashboard at [https://rrsg2020.db.neurolibre.org/](h
 These dashboards [](#intdashboard) and [](#intdashboard2) are embedded in their respective NeuroLibre preprints! If you are interested in publishing your own dashboard with NeuroLibre, please open an issue using [this template](https://github.com/neurolibre/info/issues/new?assignees=agahkarakuzu&labels=dashboard&projects=&template=new_dashboard.md&title=%5BNEW+DASHBOARD%5D).
 
 If you have any questions or need further assistance, please reach out to us at `info@neurolibre.org`.
+
+### Figure matching - Justin
+1. Bastiaens2024_AlphaModels/notebooks/Eyes_closed_eyes_open.ipynb --> corresponds to Figure 8 on page 17 of the paper.
