@@ -237,29 +237,17 @@ The 1/f noise is therefore an important feature of resting state EEG. Visually, 
 Table 1 presents the computed data feature values across all four models. Comparison with the mean empirical EEG result (1.36) shows that 1/f pre-peak values are considerably lower for JR and LW (0.36 and 0.48 respectively), but higher for RRW (1.64). Empirically, lower frequencies (pre-peak) exhibit steeper slopes in frontal areas, but these quantities for the JR and LW models are notably low.
 At higher frequencies (1/f post-peak), JR has the steepest slope (4.03), followed by RRW (3.78) then LW (2.46). All three models yield post-peak values above the empirical mean (1.48). Inversely to lower frequencies, empirically these higher frequencies in the 1/f post-peak range tend to have steeper slopes in posterior areas. However, the simulated post-peak values observed are significantly higher than the empirical values provided in {cite:t}`muthukumaraswamy20181`.
 
-:::
-:label: fig:Table
-:align: center
-\usepackage{wrapfig}
-\begin{wraptable}{r}{9.5cm}
-\footnotesize
-\centering 
-\begin{tabular}{l c c c c} 
-\hline\hline   
-Model & Main fr. & 1/f pre-peak & 1/f post-peak & Harmonics 
-\\ 
-\hline   
- JR & 10.8 & 0.39 & 4.04 & Y \\
- MDF & 8.8 & 0.10 & 5.50 & Y \\
-LW & 11.6 & 0.48 & 2.46 & Y \\
-RRW & 9.5 & 1.64 & 3.78 & Y \\
-\hline\hline 
-Empirical & $\approx$ 10 & 1.36 & 1.48 & Y\\
-\hline
-\end{tabular}  
-\caption*{**Table 1. _Evaluating Model Performance against Empirical EEG Features_**  To assess the performance of each neural mass model, we estimated its characteristic features, such as the main frequency, slope, and presence of harmonics, and compared them against the corresponding empirical measures obtained from resting state EEG recordings. These features are known to be informative of the underlying neural dynamics that give rise to the EEG signal. By evaluating the agreement between the model-based estimates and the empirical approximations, we can determine the extent to which the model captures the essential aspects of brain activity during rest.}  
-\end{wraptable}
-:::
+```{table} Table 1. Evaluating Model Performance against Empirical EEG Features
+To assess the performance of each neural mass model, we estimated its characteristic features, such as the main frequency, slope, and presence of harmonics, and compared them against the corresponding empirical measures obtained from resting state EEG recordings. These features are known to be informative of the underlying neural dynamics that give rise to the EEG signal. By evaluating the agreement between the model-based estimates and the empirical approximations, we can determine the extent to which the model captures the essential aspects of brain activity during rest.
+
+| Model   | Main Fr. | 1/f Pre-peak | 1/f Post-peak | Harmonics |
+|---------|----------|--------------|---------------|-----------|
+| JR      | 10.8     | 0.39         | 4.04          | Y         |
+| MDF     | 8.8      | 0.10         | 5.50          | Y         |
+| LW      | 11.6     | 0.48         | 2.46          | Y         |
+| RRW     | 9.5      | 1.64         | 3.78          | Y         |
+| Empirical | ≈ 10   | 1.36         | 1.48          | Y         |
+
 
 To summarize, the models demonstrate an underrepresentation of lower frequencies in JR and LW, and an overrepresentation in RRW. They all exhibit considerably steeper slopes for higher frequencies than the empirical average. This discrepancy may arise because the empirical values reflect an average across the cortex, while our models aim to capture the characteristic eyes-closed alpha peak, predominantly observed in the brain's posterior region. Visually, RRW appears to be the most similar to empirical resting state EEG, especially for the representation of 1/f in lower frequencies, which is not accounted for in the other models. Finally, consistent with empirical findings, all models have lower pre-peak 1/f values than post-peak 1/f values during EC, with higher frequencies displaying steeper slopes in posterior areas within the cortex.  
 
