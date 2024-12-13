@@ -9,7 +9,7 @@ project:
       repo: neurolibre/mystical-article # Production will override this.
       ref: HEAD # Production will override this.
   authors:
-    - name: Sorenza Bastiaens
+    - name: Agah Karakuzu
       orcid: 0000-0001-7283-271X
       affiliations: UToronto, CAMH
       corresponding: true
@@ -22,7 +22,17 @@ project:
         - Conceptualization
         - Software
         - Writing – original draft
+    - name: Sorenza P. Bastiaens
+      orcid: 0009-0008-6665-1419
+      affiliations: UToronto, CAMH
+      corresponding: true
+      email: sorenza.bastiaens@gmail.com
+      equal_contributor: true
+      roles:
+        - Paper author 
+        - Research Contribution
     - name: John D. Griffiths 
+      orcid: 0000-0002-1764-2179
       affiliations: UToronto, CAMH
       equal_contributor: true
       email: john.griffiths@mail.utoronto.ca
