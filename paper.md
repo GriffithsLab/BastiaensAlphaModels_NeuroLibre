@@ -238,31 +238,23 @@ The 1/f noise is therefore an important feature of resting state EEG. Visually, 
 Table 1 presents the computed data feature values across all four models. Comparison with the mean empirical EEG result (1.36) shows that 1/f pre-peak values are considerably lower for JR and LW (0.36 and 0.48 respectively), but higher for RRW (1.64). Empirically, lower frequencies (pre-peak) exhibit steeper slopes in frontal areas, but these quantities for the JR and LW models are notably low.
 At higher frequencies (1/f post-peak), JR has the steepest slope (4.03), followed by RRW (3.78) then LW (2.46). All three models yield post-peak values above the empirical mean (1.48). Inversely to lower frequencies, empirically these higher frequencies in the 1/f post-peak range tend to have steeper slopes in posterior areas. However, the simulated post-peak values observed are significantly higher than the empirical values provided in {cite:t}`muthukumaraswamy20181`.
 
-:::
-:label: fig:Table
-:align: center
-\usepackage{wrapfig}
-\begin{wraptable}{r}{9.5cm}
-\footnotesize
-\centering 
-\begin{tabular}{l c c c c} 
-\hline\hline   
-Model & Main fr. & 1/f pre-peak & 1/f post-peak & Harmonics 
-\\ 
-\hline   
- JR & 10.8 & 0.39 & 4.04 & Y \\
- MDF & 8.8 & 0.10 & 5.50 & Y \\
-LW & 11.6 & 0.48 & 2.46 & Y \\
-RRW & 9.5 & 1.64 & 3.78 & Y \\
-\hline\hline 
-Empirical & $\approx$ 10 & 1.36 & 1.48 & Y\\
-\hline
-\end{tabular}  
-\caption*{**Table 1. _Evaluating Model Performance against Empirical EEG Features_**  To assess the performance of each neural mass model, we estimated its characteristic features, such as the main frequency, slope, and presence of harmonics, and compared them against the corresponding empirical measures obtained from resting state EEG recordings. These features are known to be informative of the underlying neural dynamics that give rise to the EEG signal. By evaluating the agreement between the model-based estimates and the empirical approximations, we can determine the extent to which the model captures the essential aspects of brain activity during rest.}  
-\end{wraptable}
-:::
+```{table} Table 1. Evaluating Model Performance against Empirical EEG Features
+To assess the performance of each neural mass model, we estimated its characteristic features, such as the main frequency, slope, and presence of harmonics, and compared them against the corresponding empirical measures obtained from resting state EEG recordings. These features are known to be informative of the underlying neural dynamics that give rise to the EEG signal. By evaluating the agreement between the model-based estimates and the empirical approximations, we can determine the extent to which the model captures the essential aspects of brain activity during rest.
+
+| Model   | Main Fr. | 1/f Pre-peak | 1/f Post-peak | Harmonics |
+|---------|----------|--------------|---------------|-----------|
+| JR      | 10.8     | 0.39         | 4.04          | Y         |
+| MDF     | 8.8      | 0.10         | 5.50          | Y         |
+| LW      | 11.6     | 0.48         | 2.46          | Y         |
+| RRW     | 9.5      | 1.64         | 3.78          | Y         |
+| Empirical | ≈ 10   | 1.36         | 1.48          | Y         |
+```
+
+
 
 To summarize, the models demonstrate an underrepresentation of lower frequencies in JR and LW, and an overrepresentation in RRW. They all exhibit considerably steeper slopes for higher frequencies than the empirical average. This discrepancy may arise because the empirical values reflect an average across the cortex, while our models aim to capture the characteristic eyes-closed alpha peak, predominantly observed in the brain's posterior region. Visually, RRW appears to be the most similar to empirical resting state EEG, especially for the representation of 1/f in lower frequencies, which is not accounted for in the other models. Finally, consistent with empirical findings, all models have lower pre-peak 1/f values than post-peak 1/f values during EC, with higher frequencies displaying steeper slopes in posterior areas within the cortex.  
+
+
 
 
 #### _Eyes open vs. Eyes closed_
@@ -344,61 +336,25 @@ Our stability analyses showed that there are distinct mechanisms underlying alph
 
 Initially, we compared models within the alpha regime and explored different dynamical regimes through parameter space searches. However, explicit comparisons of model components, such as topology, equations, and parameter values have not been conducted. This section addresses these aspects to evaluate the validity and suitability of models as theories of alpha rhythm generation. 
 
-:::
-:label: fig:Param_Table
-:align: center
-\usepackage{wrapfig}
-\begin{wraptable}{r}{11.5cm}
-    \centering
-    \tiny
-    \begin{tabular}{ccccc}
-        \rowcolor{black} 
-        \multicolumn{5}{|c|}{\textcolor{white}{Common Parameters}} \\
-        \hline
-        \rowcolor{gray!70}
-        Model & JR & MDF & LW & RRW \\
-        \rowcolor{gray!20}
-        Firing threshold (mean) & $V_{0}$ & -- & $\mu_{e,i}$ & $\Theta$   \\
-        \rowcolor{gray!70}
-        Firing threshold variability & $1/r$ & -- &  $\sigma_{e,i}$ & $\sigma'$\\
-        \rowcolor{gray!20}
-        Maximum firing rate & $2e_{0}$ & -- & $S_{e,i}^{max}$ & $Q_{max}$ \\
-        \rowcolor{gray!70}
-        Maximum EPSP amplitude & $A$ & $H_{e}$ & $\Gamma_{e}$ & -- \\
-        \rowcolor{gray!20}
-        Maximum IPSP amplitude & $B$ & $H_{i}$ &  $\Gamma_{i}$ & -- \\
-        \rowcolor{gray!70}
-        Rate constants & $a$ and $b$ & $\kappa_{e}$ and $\kappa_{i}$ &$\gamma_{e,i}$ & --  \\
-        \rowcolor{gray!20}
-         &  &  &  & $\nu_{ee}, \nu_{ei}, \nu_{es}, \nu_{se}$\\
-        \rowcolor{gray!20}
-        \multirow{-2}{*}{Connectivity} & \multirow{-2}{*}{$C_{1}, C_{2}, C_{3}, C_{4}$} & \multirow{-2}{*}{$\gamma_{1}, \gamma_{2}, \gamma_{3}, \gamma_{4}$} & \multirow{-2}{*}{$N_{ee}^{\beta}, N_{ei}^{\beta}, N_{ie}^{\beta}, N_{ii}^{\beta}$} & $\nu_{sr}, \nu_{rs}, \nu_{re}, \nu_{sn}$ \\ 
-        \rowcolor{black} 
-        \multicolumn{5}{|c|}{\textcolor{white}{Additional Parameters}} \\
-        \rowcolor{gray!70}
-        Sigmoid shape & & $\rho_{1}, \rho_{2}$ &  &  \\
-        \rowcolor{gray!20}
-        Decay and rise time & & & & $\frac{1}{\alpha},\frac{1}{\beta}$ \\
-        \rowcolor{gray!70}
-        Corticothalamic loop delay & & & & $t_{0}$ \\
-        \rowcolor{gray!20}
-        Cortical damping rate & & & & $\gamma_{e}$ \\
-        \rowcolor{gray!70}
-        Passive membrane decay & & & & \\
-        \rowcolor{gray!70}
-        time constant & & &\multirow{-2}{*}{$\gamma_{e,i}$} &\\
-        \rowcolor{gray!20}
-        Mean resting  & & & & \\
-        \rowcolor{gray!20}
-        membrane potential & & & \multirow{-2}{*}{$h_{e,i}^{rest}$}& \\
-        \rowcolor{gray!70}
-        Mean equilibrium potential & & & $h_{e,i}^{eq}$& \\
-    \end{tabular}
-        \caption*{**Table 2. _Common parameters across models based on their biological interpretation._** Certain parameters have a similar role and a biological interpretation associated with it that is comparable between the models. The additional parameters reflect the novelty and differences proposed by each models.
-        {-0.5cm}}  
-    \label{tab:global_eval}
-\end{wraptable}
-:::
+```{table} Table 2. Common parameters across models based on their biological interpretation.
+Certain parameters have a similar role and a biological interpretation associated with it that is comparable between the models. The additional parameters reflect the novelty and differences proposed by each model.
+
+| **Parameter**               | **JR**                | **MDF**               | **LW**                            | **RRW**                                |
+|-----------------------------|-----------------------|-----------------------|-----------------------------------|----------------------------------------|
+| **Firing threshold (mean)** | \( V_{0} \)          | --                    | \( \mu_{e,i} \)                  | \( \Theta \)                           |
+| **Threshold variability**   | \( 1/r \)            | --                    | \( \sigma_{e,i} \)               | \( \sigma' \)                          |
+| **Max firing rate**         | \( 2e_{0} \)         | --                    | \( S_{e,i}^{max} \)              | \( Q_{max} \)                          |
+| **Max EPSP amplitude**      | \( A \)              | \( H_{e} \)           | \( \Gamma_{e} \)                 | --                                     |
+| **Max IPSP amplitude**      | \( B \)              | \( H_{i} \)           | \( \Gamma_{i} \)                 | --                                     |
+| **Rate constants**          | \( a \), \( b \)     | \( \kappa_{e,i} \)    | \( \gamma_{e,i} \)               | --                                     |
+| **Connectivity**            | \( C_{1-4} \)       | \( \gamma_{1-4} \)    | \( N_{ee}^{\beta}, N_{ei}^{\beta}, N_{ie}^{\beta}, N_{ii}^{\beta} \) | \( \nu_{ee}, \nu_{ei}, \nu_{es}, \nu_{se}, \nu_{sr}, \nu_{rs}, \nu_{re}, \nu_{sn} \) |
+| **Sigmoid shape**           | --                   | \( \rho_{1}, \rho_{2} \) | --                            | --                                     |
+| **Decay and rise time**     | --                   | --                    | --                                | \( \frac{1}{\alpha}, \frac{1}{\beta} \) |
+| **Corticothalamic delay**   | --                   | --                    | --                                | \( t_{0} \)                            |
+| **Damping rate**            | --                   | --                    | --                                | \( \gamma_{e} \)                       |
+| **Membrane decay**          | --                   | --                    | \( \gamma_{e,i} \)               | --                                     |
+| **Resting potential**       | --                   | --                    | \( h_{e,i}^{rest} \)             | --                                     |
+| **Equilibrium potential**   | --                   | --                    | \( h_{e,i}^{eq} \)               | --                                     |
 
 
 NPMs typically include both excitatory and inhibitory neurons. For example, LW, with a single excitatory and inhibitory population, captures excitatory-inhibitory balance and includes synaptic reversal potentials and transmitter kinetics like fast AMPA and GABA. JR adds an excitatory population, resulting in three neural populations and reflecting Katznelson's approach to explore long-range excitatory connections [@katznelson1981normal;@jansen1993neurophysiologically]. MDF introduces an inhibitory self-connection to account for high-frequency oscillations [@moran2007neural], while RRW, with four neural populations, includes cortical and thalamic neurons and features complex connectivities. All models use second-order differential equations combined with a nonlinear operator for synaptic processes. JR does not separately simulate EPSPs and IPSPs for pyramidal cells, unlike MDF, which includes recurrent inhibitory connections and additional differential equations. MDF also features a richer sigmoid function definition with parameters $\rho_{1}$ and $\rho_{2}$ for voltage sensitivity and position, and adaptation currents through parameter $a$. LW is more complex due to an additional block converting postsynaptic potentials into soma membrane potential and includes fast neurotransmitter kinetics. RRW describes firing behavior using a damped wave equation for cortical excitatory populations, adding an additional $\phi_e$ term for average pulse density. Understanding the role and rationale of different parameters is essential for making models biophysically meaningful. S.9 includes parameter tables and their biological meanings. While all the models share common components, MDF allows easier modulation of the sigmoid function shape, and RRW introduces corticothalamic interaction parameters. 
