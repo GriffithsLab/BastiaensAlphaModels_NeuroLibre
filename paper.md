@@ -13,14 +13,16 @@ The classical alpha rhythm is an approximately 8-12Hz oscillatory activity patte
 
 A central criterion around which we base this investigation is the requirement that the models of interest should be expressed in concrete mathematical language, as well as being implemented in numerical simulations and/or quantitative analytic computations. Specifically, we consider a particular class of neurophysiological model - neural population models (NPMs) - that amongst the different mathematical formulations used over the past half century of efforts to model and understand alpha activity (Fig. 1C) are the one that has been used most routinely  [@da1977cortical;@grimbert2006bifurcation;@jansen1995electroencephalogram;@liley2001spatially;@bhattacharya2011thalamo;@david2003neural;@hartoyo2019parameter;@robinson2003neurophysical]. 
 
-We focus on four extensively studied NPMs that are commonly used to describe EEG alpha activity in the neuroimaging, neurophysiology, and computational neuroscience literature: the Jansen-Rit (JR; {cite:alt}`jansen1995electroencephalogram`), Moran-David-Friston (MDF; {cite:alt}`david2003neural;moran2007neural`), Liley-Wright (LW;  {cite:alt}`liley1999continuum;liley2001spatially`), and Robinson-Rennie-Wright (RRW; {cite:alt}`robinson2002dynamics;robinson2003neurophysical`) models. These shorthand terms reference certain key individuals who contributed to the conception and/or development of several prominent strands in the research literature. We do note however that they are imperfect ones - both because all of the models studied here build directly on the earlier work of other important theoreticians (e.g. Freeman, Zetterberg, Lopes Da Silva, Cowan, Nunez), and also in some cases each other (e.g. MDF is an indirect extension of JR). 
-We begin over the next few sections with a description of general elements present in the JR, MDF, LW, and RRW models, and a summary of their individual  characteristics. Direct comparisons between each of them are then made, first in the context of the alpha regime, and then extending into other oscillatory regimes at non-alpha frequencies.
-A central objective in this work is to identify common patterns between the models, using numerical simulations across a broad parameter space to identify the effects of rate constants, inter-population connectivity structure, and other factors on oscillatory dynamics. These similarities and differences across models constitute the points of agreement and divergence across current theories of alpha rhythmogenesis, and it is the mapping of this theoretical landscape that is our main aim in the present paper. The origin, biological significance, and validity of their parameters, as well as the functional forms of their equations, are also considered when discussing the respective limitations and advantages of each candidate model. 
+We focus on four extensively studied NPMs that are commonly used to describe EEG alpha activity in the neuroimaging, neurophysiology, and computational neuroscience literature: the Jansen-Rit [@jansen1995electroencephalogram], Moran-David-Friston [@david2003neural; @moran2007neural], Liley-Wright[@liley1999continuum; @liley2001spatially], and Robinson-Rennie-Wright (RRW; [@robinson2002dynamics; @robinson2003neurophysical]) models. These shorthand terms reference certain key individuals who contributed to the conception and/or development of several prominent strands in the research literature. We do note, however, that they are imperfect ones—both because all of the models studied here build directly on the earlier work of other important theoreticians (e.g., Freeman, Zetterberg, Lopes Da Silva, Cowan, Nunez), and also in some cases each other (e.g., MDF is an indirect extension of JR).
+We begin over the next few sections with a description of general elements present in the JR, MDF, LW, and RRW models, and a summary of their individual characteristics. Direct comparisons between each of them are then made, first in the context of the alpha regime and then extending into other oscillatory regimes at non-alpha frequencies.
+A central objective in this work is to identify common patterns between the models, using numerical simulations across a broad parameter space to identify the effects of rate constants, inter-population connectivity structure, and other factors on oscillatory dynamics. These similarities and differences across models constitute the points of agreement and divergence across current theories of alpha rhythmogenesis, and it is the mapping of this theoretical landscape that is our main aim in the present paper. The origin, biological significance, and validity of their parameters, as well as the functional forms of their equations, are also considered when discussing the respective limitations and advantages of each candidate model.
+
 
 
 ## Alpha origins and rhythmogenesis: current theories
 
-:::{figure} ../notes/latex2md_conversion/2024-12-12/01_Chapter/Images/Fig1__Overview_final.png
+:::{figure} 
+![](../static/Images/Fig1__Overview_final.png)
 :label: fig:Overview
 :align: center
 :::
@@ -40,10 +42,6 @@ Unlike other well-characterized brain oscillations, such as beta and gamma waves
 * **Intracortical theory**: Alpha oscillations are generated by recurrent activity and excitatory-inhibitory interactions within cortical column microcircuits.
 
 * **Corticothalamic theory**: Alpha oscillations are generated by delayed inhibitory feedback within corticothalamocortical loops.   
-
-* The harmonic eigenmode structure of large-scale cortico-cortical networks is a core determinant of the 8-13Hz characteristic frequency range.
-
-* Thalamic and cortical pacemaker neurons are responsible for the generation of the alpha waves. 
 
 These two accounts describe the origin of alpha waves as a phenomenon relying on dynamics of local networks of interconnected neural populations, and thus occurring at the _mesoscopic_ spatial scale. Computations underlying brain functions such as action, perception, learning, language and higher cognition have been hypothesized to also originate from activity within neural ensembles at this spatial scale [@deco2008dynamic]. However, whilst current neural recording technologies allow straightforward measurement of macroscale (EEG, MEG, fMRI, ECoG) or microscale (single cell recording, fluorescence calcium imaging, multielectrode arrays) activity, mesoscopic activity is more challenging to measure directly. To help bridge the gap between these scales, and explore the rhythmogenic mechanisms entailed by the two local theory types summarized above, mathematical models implementing these theories have largely focused on describing and simulating mesoscale neural population wiring and activity. 
 
@@ -89,10 +87,13 @@ The mathematical expression of the sigmoid for JR is defined as
 ```{math}
 S(v)=\frac{2e_0}{1+e^{r(V_0-v)}}
 ```
- with $e_{0}$ representing the firing rate at threshold (and $2e_{0}$ the maximum firing rate), $r$ denoting the variance of firing thresholds, and $V_{0}$ the mean firing threshold. The impulse response is expressed as follows
- ```{math}
+
+with $e_{0}$ representing the firing rate at threshold (and $2e_{0}$ the maximum firing rate), $r$ denoting the variance of firing thresholds, and $V_{0}$ the mean firing threshold. The impulse response is expressed as follows
+
+```{math}
 h(t)=\alpha \beta te^{-\beta t}    \qquad \text{for t} > 0,
 ```
+
 The parameter $\alpha$ is defined as the maximum amplitude of the postsynaptic potential, and $\beta$ represents a sum of the reciprocal of the time constant of the passive membrane and all other spatially distributed delays present in the dendritic network, condensed into a single lumped term. $\alpha$, $\beta$ in Eq. 2 correspond to the terms $A$, $a$ and $B$, $b$ in Fig. 4 for the excitatory and inhibitory populations, respectively.
 
 After transforming the impulse response in the Laplace domain, the system is fully defined by second-order differential equations (see S.1). These equations are detailed in Fig. 4B, along with the numerically integrated time series output, and the associated power spectrum in Fig. 4C.
@@ -121,9 +122,7 @@ The impulse response in MDF is identical to JR, and the parameters have the same
 :align: center
 ![](../static/Images/Moran_schematic_short.png)
 ![](../static/Images/Moran_schematic_2.png)
-:::
 :label: fig:Mor_topography
-:align: center
 :::
 
 
@@ -207,7 +206,8 @@ In the spatially uniform case, the impulse response appears as
 
 For all four of the selected models, we simulated alpha activity numerically by integrating the models' differential equations given in Figs. 4-7 and S.9, and analytically, by algebraically calculating the power spectrum from the models' transfer function. Numerical simulations were run for a duration of 100 seconds, generating a time series that represents neural activity within the principal excitatory cortical population. The power spectrum of this simulated activity was then computed using Welch's method, as implemented in the scipy library [@2020SciPy-NMeth]. We selected parameter values commonly used in previous studies to study alpha activity, which we refer to as 'standard alpha parameters': {cite:t}`jansen1995electroencephalogram` for JR, {cite:t}`moran2007neural` for MDF (using {cite:alp}`david2003neural` to tune to a dominant frequency of alpha [8-12Hz] instead of beta [12-20Hz]), {cite:t}`liley2001spatially` for LW, and {cite:t}`zhao2015generalized` for RRW (who in turn followed from {cite:t}`robinson2002dynamics;rowe2004estimation`). 
 
-For present purposes we focused on three reference features of empirically-measured EEG activity: i) alpha peak frequency, ii) $1/f^{\beta}$ ($\beta \approx 1 - 2$) power spectral scaling  [@muthukumaraswamy20181], and iii) the phenomenon of _alpha blocking_ - attenuation of the alpha frequency peak during the transition from eyes-closed (EC) to eyes-open (EO) state. Each model's replication of these features was compared against reference values, taken in this case from empirical data {cite:t}`muthukumaraswamy20181`. The exponent $\beta$ was computed with two different methods: 1) Evaluating pre- and post-peak $\beta$ separately by fitting a line with linear regression in the logarithmic scale, and 2) Using the power spectrum fit of the FOOOF library (\url{https://fooof-tools.github.io/fooof/}); {cite:alp}`donoghue2020parameterizing`), which parametrizes neural power spectra into a mixture of the $1/f^\beta$ background and a Gaussian for each frequency peak. These FOOOF fits are also used to calculate the dominant oscillation frequencies of the power spectra, which are discussed in detail in parameter space figures of Section 3.1.2. To gain further insights into the dynamics generated by JR and LW, we determined the stability of the fixed points of the system as a function of E-I connection strengths, the derivations of which are given in S.3). Python (3.8) code for all signal processing and modelling analyses is available at \url{https://github.com/GriffithsLab/Bastiaens2024\_AlphaModels}. 
+For present purposes we focused on three reference features of empirically-measured EEG activity: i) alpha peak frequency, ii) $1/f^{\beta}$ ($\beta \approx 1 - 2$) power spectral scaling  [@muthukumaraswamy20181], and iii) the phenomenon of _alpha blocking_ - attenuation of the alpha frequency peak during the transition from eyes-closed (EC) to eyes-open (EO) state. Each model's replication of these features was compared against reference values, taken in this case from empirical data {cite:t}`muthukumaraswamy20181`. The exponent $\beta$ was computed with two different methods: 1) Evaluating pre- and post-peak $\beta$ separately by fitting a line with linear regression in the logarithmic scale, and 2) Using the power spectrum fit of the [FOOOF library](https://fooof-tools.github.io/fooof/); {cite:alp}`donoghue2020parameterizing`), which parametrizes neural power spectra into a mixture of the $1/f^\beta$ background and a Gaussian for each frequency peak. These FOOOF fits are also used to calculate the dominant oscillation frequencies of the power spectra, which are discussed in detail in parameter space figures of Section 3.1.2. To gain further insights into the dynamics generated by JR and LW, we determined the stability of the fixed points of the system as a function of E-I connection strengths, the derivations of which are given in S.3). Python (3.8) code for all signal processing and modelling analyses is available at [this github repository](https://github.com/GriffithsLab/Bastiaens2024\_AlphaModels).
+
 
 
 # Results
@@ -219,7 +219,8 @@ Having presented and contrasted the four candidate alpha models (JR, MDF, LW, RR
 
 ### Characteristics of model-generated alpha activity
 
-{_Frequency peak and harmonics_}~\\
+#### _Frequency peak and harmonics_
+
 Each of the models displays a dominant oscillatory frequency within the alpha range for the originally-reported default parameters, with values of 10.8Hz, 8.8Hz, 11.6Hz, and 9.5Hz observed for JR, MDF, LW, and RRW, respectively (Fig. 8A). With these parameter settings, JR closely approximates the 10Hz frequency, while LW demonstrates a slightly higher value, and RRW a lower value. Importantly, all of these frequencies fall well within the alpha oscillatory range of 8-12Hz, indicating that the models adequately simulate the alpha frequency peak. It should also be noted that there is considerable heterogeneity across subjects in terms of both the central frequency and magnitude of the alpha rhythm [@haegens2014inter], and slight modifications in the model parameters have the potential to shift the peak frequency up or down, providing flexibility in matching specific experimental recordings. Differences between individuals in model parameters can be potentially also related to their cognitive profile as, alpha peak is considered as a biomarker for healthy cognitive functioning [@klimesch1999eeg;@bacsar2001gamma].
 
 In addition to the main frequency, harmonics in the beta range are also present in each model, albeit with varying degrees of accentuation. Of these, LW exhibits the least pronounced harmonics, suggesting a closer approximation to a pure sinusoidal waveform. In contrast, RRW shows more prominent harmonics, which is evidenced in particular by the fact that (unlike the other three models) these still appear in its linearized approximation. For further details and discussion of the linearized model approximations and transfer function equations, see S.2. The variable presence of harmonics across the four models, and their subtle dependence on parameter values and nonlinearities, underscores the complex nature of alpha oscillations in the brain and their spectral characteristics.
@@ -230,13 +231,17 @@ In addition to the main frequency, harmonics in the beta range are also present 
 :::
 
 
-{_1/f scaling_} ~\\
+#### _1/f scaling_
 
 Empirical studies have shown that aperiodic activity (also known as 1/f noise) observed in EEG power spectra following a power-law function could play a functional role in healthy brains and explain disease symptoms. For example, cognitive decline in ageing has been associated with increased 1/f noise (slope) in the power spectrum [@voytek2015age], as well as aperiodic variations in stroke patients [@johnston2023spectral].
 The 1/f noise is therefore an important feature of resting state EEG. Visually, the shape of the 1/f curve from RRW closely resembles the empirical 1/f curve (see e.g. {cite:alp}`freeman2003spatial;dehghani2010comparative`). In contrast, this feature is poorly represented by JR, which may be due to the fact that the JR system generates almost a perfect sinusoid, whereas RRW for instance seems to have more aperiodic fluctuations in the EEG time series.\\
 Table 1 presents the computed data feature values across all four models. Comparison with the mean empirical EEG result (1.36) shows that 1/f pre-peak values are considerably lower for JR and LW (0.36 and 0.48 respectively), but higher for RRW (1.64). Empirically, lower frequencies (pre-peak) exhibit steeper slopes in frontal areas, but these quantities for the JR and LW models are notably low.
 At higher frequencies (1/f post-peak), JR has the steepest slope (4.03), followed by RRW (3.78) then LW (2.46). All three models yield post-peak values above the empirical mean (1.48). Inversely to lower frequencies, empirically these higher frequencies in the 1/f post-peak range tend to have steeper slopes in posterior areas. However, the simulated post-peak values observed are significantly higher than the empirical values provided in {cite:t}`muthukumaraswamy20181`.
 
+:::
+:label: fig:Table
+:align: center
+\usepackage{wrapfig}
 \begin{wraptable}{r}{9.5cm}
 \footnotesize
 \centering 
@@ -254,13 +259,13 @@ Empirical & $\approx$ 10 & 1.36 & 1.48 & Y\\
 \hline
 \end{tabular}  
 \caption*{**Table 1. _Evaluating Model Performance against Empirical EEG Features_**  To assess the performance of each neural mass model, we estimated its characteristic features, such as the main frequency, slope, and presence of harmonics, and compared them against the corresponding empirical measures obtained from resting state EEG recordings. These features are known to be informative of the underlying neural dynamics that give rise to the EEG signal. By evaluating the agreement between the model-based estimates and the empirical approximations, we can determine the extent to which the model captures the essential aspects of brain activity during rest.}  
-
 \end{wraptable}
+:::
 
 To summarize, the models demonstrate an underrepresentation of lower frequencies in JR and LW, and an overrepresentation in RRW. They all exhibit considerably steeper slopes for higher frequencies than the empirical average. This discrepancy may arise because the empirical values reflect an average across the cortex, while our models aim to capture the characteristic eyes-closed alpha peak, predominantly observed in the brain's posterior region. Visually, RRW appears to be the most similar to empirical resting state EEG, especially for the representation of 1/f in lower frequencies, which is not accounted for in the other models. Finally, consistent with empirical findings, all models have lower pre-peak 1/f values than post-peak 1/f values during EC, with higher frequencies displaying steeper slopes in posterior areas within the cortex.  
 
 
-{_Eyes open vs. Eyes closed_} ~\\
+#### _Eyes open vs. Eyes closed_
 
 A defining characteristic of the resting state alpha rhythm in visual areas is that its amplitude is attenuated in EC compared to EO conditions, a phenomenon known as _alpha blocking_ [@barry2017eeg;@adrian1934berger;@chapman1962quantitative]. We examined the ability of our surveyed models to reproduce this effect by modifying relevant parameters based on previous research findings. In LW, increasing the external input to the inhibitory cortical population resulted in a reduction of alpha activity, consistent with the intuitive idea that an increase in the amount of incoming visual information is what characterizes the transition from EC to EO [@hartoyo2020inferring]. Similar effects were also observed in the JR and MDF models, where an increase in external input led to the alpha blocking. In these cases however, input is (and can only be) delivered to the excitatory rather than the inhibitory neural population. 
 
@@ -271,18 +276,14 @@ In summary, all four models capture key features of empirically observed alpha r
 Of the four, RRW is in general notably closer to empirical EEG data in both its 1/f behavior and its harmonics. It is important to acknowledge however that this analysis is based on a specific set of parameters, which can be restrictive given the wide range of parameter combinations that can give rise to the alpha regime. Therefore, further exploration of the parameter space boundaries is crucial to gain a more comprehensive understanding of the emerging behavior and dynamics of the alpha rhythm.  
 
 
-:label: fig:Alpha_results
-:align: center
-:::
-
-
 ### Structure of parameter space
 
 Alpha oscillations are generated by non-unique parameter sets, and while there may be quantitative differences in parameter values between models, their qualitative behavior may be similar. Next we explore alpha regime boundaries and the necessary conditions for producing a dominant frequency in the alpha range, as a function of rate constant and connectivity parameters. We also identify any other dynamical regimes that the models may present. Parameters with similar biological interpretations between the models are compared in order to provide a meaningful comparison.  
 To ensure consistency, all other parameters are maintained in their standard resting state setting (Tables in S.9).
 
 
-{_Rate constant parameter space dynamics_} ~\\
+### _Rate constant parameter space dynamics_
+
 
 The JR, MDF and LW models have distinct excitatory and inhibitory impulse responses that are modulated by rate constants ($\tau_{e}$ and $\tau_{i}$). These rate constants reflect collective passive dendritic cable delays and neurotransmitter kinetics associated with fast synaptic activity involving glutamatergic AMPA and GABA receptors [@spiegler2012dynamics]. This synaptic filtering is assumed to take a different shape in excitatory than in inhibitory neural populations in most of the four models, with the exception of RRW - where the same rate constant is used for AMPA as for GABA receptors. Previous studies have demonstrated that the manipulation of these rate constants can significantly impact the dominant frequency of oscillations [@david2003neural;@gast2019pyrates]. In our investigation, we aim to determine whether similar patterns of frequency changes can be observed across the parameter space for all three models.
 
@@ -301,7 +302,7 @@ As expected, modifying the shape of the synaptic filtering through the rate cons
 In RRW, $\tau_{e}$ and $\tau_{i}$ are assumed to be equal, considering that the difference in rise time between AMPA and GABA-A is negligible and, therefore, the synaptic filtering is the same between excitatory and inhibitory neurons. This assumption could be questioned, however, as changes in rate constants in the other models have been shown to affect the central frequency. 
 
 
-{_Connection Strength_} ~\\
+#### _Connection Strength_
 
 The strength of connections between neural populations plays a role in facilitating communication, and thus when the strength of these connections is appropriately balanced, it enables coordinated neural activity, leading to the generation of brain rhythms. Even though on the face of it the neural populations included in the four models differ quite considerably, they all exhibit at least one common element - a principal excitatory-inhibitory ($E - I$) loop. The ratio of synaptic weights within that loop relates closely to the concept of 'E/I balance', a widely studied physiological phenomenon that has garnered significant attention in neuroscience in recent years [@meisel2017decline;@zhou2018synaptic;@sohal2019excitation;@murray2014linking]. We explored the impact of connectivity parameters on the dominant frequency of oscillation. To maintain conciseness, we exclude the connectivity parameter spaces of MDF in this section, since the patterns observed are very similar between JR and MDF, with the distinction that MDF tends to generate higher frequencies of oscillation for the same set of parameter values. A comprehensive summary of the comparison between JR and MDF can be found in S.6. Additionally, S.7 includes a 4D parameter analysis for JR, encompassing all model connectivities.
 
@@ -343,9 +344,10 @@ Our stability analyses showed that there are distinct mechanisms underlying alph
 
 Initially, we compared models within the alpha regime and explored different dynamical regimes through parameter space searches. However, explicit comparisons of model components, such as topology, equations, and parameter values have not been conducted. This section addresses these aspects to evaluate the validity and suitability of models as theories of alpha rhythm generation. 
 
+:::
 :label: fig:Param_Table
 :align: center
-:::
+\usepackage{wrapfig}
 \begin{wraptable}{r}{11.5cm}
     \centering
     \tiny
@@ -396,6 +398,8 @@ Initially, we compared models within the alpha regime and explored different dyn
         {-0.5cm}}  
     \label{tab:global_eval}
 \end{wraptable}
+:::
+
 
 NPMs typically include both excitatory and inhibitory neurons. For example, LW, with a single excitatory and inhibitory population, captures excitatory-inhibitory balance and includes synaptic reversal potentials and transmitter kinetics like fast AMPA and GABA. JR adds an excitatory population, resulting in three neural populations and reflecting Katznelson's approach to explore long-range excitatory connections [@katznelson1981normal;@jansen1993neurophysiologically]. MDF introduces an inhibitory self-connection to account for high-frequency oscillations [@moran2007neural], while RRW, with four neural populations, includes cortical and thalamic neurons and features complex connectivities. All models use second-order differential equations combined with a nonlinear operator for synaptic processes. JR does not separately simulate EPSPs and IPSPs for pyramidal cells, unlike MDF, which includes recurrent inhibitory connections and additional differential equations. MDF also features a richer sigmoid function definition with parameters $\rho_{1}$ and $\rho_{2}$ for voltage sensitivity and position, and adaptation currents through parameter $a$. LW is more complex due to an additional block converting postsynaptic potentials into soma membrane potential and includes fast neurotransmitter kinetics. RRW describes firing behavior using a damped wave equation for cortical excitatory populations, adding an additional $\phi_e$ term for average pulse density. Understanding the role and rationale of different parameters is essential for making models biophysically meaningful. S.9 includes parameter tables and their biological meanings. While all the models share common components, MDF allows easier modulation of the sigmoid function shape, and RRW introduces corticothalamic interaction parameters. 
 LW incorporates synaptic reversal potentials, distinguishing its dynamic transformation of postsynaptic to soma membrane potentials.
@@ -405,7 +409,8 @@ LW incorporates synaptic reversal potentials, distinguishing its dynamic transfo
 
 The systems under consideration have parameters with corresponding biological interpretations; however, the nominal values assigned to these parameters vary considerably across the models. The variation in parameter values across the models can be attributed to several factors, including differences in the experimental data used to inform the models, distinct mathematical formulations, and specific assumptions. Each model is designed to capture different aspects of neural activity and may prioritize certain features or phenomena over others. In the following section, we first examine the rationale behind the expression and parameters of the firing rate function, then the impulse response, and finally the connectivity values. 
 
-{_Firing rate_} ~\\
+
+#### _Firing rate_
 
 Fig. 12 shows the firing rate curves of the four models. It can be seen here that there is some variability in maximum neural firing rate parameters used, as well as the point of inflection of the curves. As mentioned in the previous section, MDF implements a different expression of the sigmoid that does not include parameters equivalent to a maximum firing rate, mean firing threshold, or standard deviation of the threshold distribution in the neural population, but instead has two parameters defining shape and position. The maximum amplitude with the current setting reaches 0.9, but can be tuned by modifying the parameters $\rho_2$. Even though the other three models have parameters with a similar biological interpretation, the values are considerably different. First, the maximal firing rate is equal to $500s^{-1}$, $340s^{-1}$ and $5s^{-1}$ for LW, RRW, and JR respectively. The difference in the order of magnitude between JR and the other two models (LW and RRW) can in part be explained by the fact that the value chosen by Jansen and Rit in their original paper is taken from {cite:t}`freeman1987simulation`, and is actually a dimensionless normalized parameter. This quantity is expressed without units (for details on the calculation of the maximal wave amplitude $Q_{m}$ see {cite:alp}`freeman1979nonlinear`), whereas both RRW and LW rely on experimentally derived average values. However, in the case of RRW, the assumed $Q_{max}$ value was made without a clear citation, indicating that this is an assumption, and is given in units of the maximum possible value [@robinson1997propagation;@rennie1999effects]. The standard values from Freeman for converting membrane potential to firing rates are applied in the JR firing rate function, but the expression itself stems from {cite:t}`da1976models`, and the current JR model uses a simplified version of that function. In the case of RRW, the firing rate function initially corresponded to the error function introduced by {cite:t}`wright1995simulation`. Since 1999, the nonlinear function in RRW has been a modified version of that initial error function and closely approximates it [@rennie1999effects]. The differing source of the firing rate conversion equation between the two models explains the slight differences observed in their mathematical expressions. 
 
@@ -419,10 +424,10 @@ The spiking threshold parameter (voltage at point of inflection in the sigmoid c
 :::
 
 
-{_Impulse response_}~\\ 
+#### _Impulse response_ 
 
 With respect to the impulse response, the parameter values in JR can be traced back to {cite:t}`van1982model`. The impulse response used in JR corresponds to a simplified version of expression given in Lopes Da Silva {cite:t}`lopes1974model;da1976models`. These authors determined the parameters $A$, $B$, $a$ and $b$ by respecting certain basic properties of real postsynaptic potentials, and ensuring the system produces alpha frequency oscillations [@grimbert2006analysis]. This choice of JR to use the alpha function (unrelated to alpha rhythms) as an impulse response was originally proposed by {cite:t}`rall1967distinguishing`. 
-MDF has an identical impulse response function, but some of the standard parameter values differ because in {cite:t}'moran2007neural', the authors deliberately selected `standard' parameters that prioritize an EEG with significant power in the higher beta frequency range, aiming to showcase the impact of nonlinearities in their computational framework. The standard MDF parameters are thus adjusted in the present study to place the central frequency in the alpha band by using comparable values to {cite:t}`david2003neural`. 
+MDF has an identical impulse response function, but some of the standard parameter values differ because in {cite:t}'moran2007neural', the authors deliberately selected 'standard' parameters that prioritize an EEG with significant power in the higher beta frequency range, aiming to showcase the impact of nonlinearities in their computational framework. The standard MDF parameters are thus adjusted in the present study to place the central frequency in the alpha band by using comparable values to {cite:t}`david2003neural`. 
 With our adjustments to obtain alpha oscillations, the values of the impulse response in MDF vary slightly from those in [@moran2007neural], such as the rate constants ($250s^{-1}$ instead of $100s^{-1}$ for $\kappa_e$; $62.5s^{-1}$ instead of $50s^{-1}$), but are still in the same order of magnitude. These differences are explained by the fact that the additional self-inhibitory connection changes the behavior of the system for similar parameter values. Thus, to simulate an equivalent alpha these need to be modified.
 
 There is some variability across the models in the values used for EPSP and IPSP amplitudes. This has been justified physiologically by the fact that certain neuropeptides can modulate the amplitude of PSPs, meaning that some degree of freedom in choice of these values is needed [@jansen1995electroencephalogram].
@@ -437,7 +442,7 @@ Overall, an anatomical assumption made is that the amplitude of the inhibitory i
 :::
 
 
-{_Connectivity_}~\\
+#### _Connectivity_
 
 Connectivity parameters across the four models differ in their units and physiological interpretation, making direct comparisons of specific values challenging. In JR and MDF, the connectivity parameter values are dimensionless, and proportional to the average number of synapses between populations [@jansen1995electroencephalogram]. Based on several neuroanatomical studies [@braitenberg2013cortex;@larkman1991dendritic;@liu1991distribution;@elhanany1990intrinsic] that estimated these quantities by counting synapses. With these studies, Jansen and Rit condensed the four connections into fractions of a single parameter C [@grimbert2006bifurcation]. Since Jansen and Rit estimated that the global parameter C would most likely change primarily due to its role in capturing synaptic phenomena like neurotransmitter depletion, this reduction has been useful in determining the overall effect of variations in connectivity while keeping their proportions to each other identical. LW has parameters representing the total number of connections between the two populations, which take higher values for excitatory neurons as 80\% of cortical neurons are excitatory [@cook2021neural]. Furthermore, anatomical estimates for each connection were derived using an equation that considers the diameter of the mean dendrite and intracortical axon, the mean total length of all dendritic and intracortical axonal arborizations, the mean length of the pyramidal cell's basal dendritic arborizations, and the neuronal density (as described in {cite:alp}`liley2001spatially` and outlined in {cite:alp}`liley1994intracortical`). RRW has connectivity variables denoted as $\nu_{ab}$, which correspond to the mean number of synapses (anatomical or structural in nature) multiplied by the strength of the response to a unit signal expressed in units as $mVs$ [@rennie1999effects;@robinson1997propagation;@rall1967distinguishing]. 
  
@@ -455,23 +460,17 @@ Exploring the stability of the JR and LW models revealed different mechanisms fo
 Our comparative evaluation highlighted topological and mathematical differences and clarified the rationales behind parameter values. Despite variations, the impact on the shape of both the sigmoid and impulse response is consistent (Figs. 12-13). Our investigation shows similar capacities to generate spectral EEG features, leaving it unclear which alpha theory type is best supported. The selection of a model depends on the study's goal, its capacity to represent neural activity features, and relevant biological details. While mesoscopic scale empirical data may be insufficient to favour one alpha theory over another, our study clarifies the role of the E-I loop in each model and the implications of synaptic gains on dynamics, which we hope will prove useful in studies of altered dynamics associated with neural pathologies and disorders [@eichler2008ei;@li2022excitation].
 
 
-
 ## Model limitations and critique
 
 NPMs offer a valuable framework for studying brain dynamics at the mesoscopic scale using data from EEG, MEG, LFPs, ECoG, fMRI, PET, fNIRS, and wide-field calcium imaging. However, their simplicity sacrifices important neurobiological details, posing challenges for parameterization and validation, particularly in the lack of correspondence between model variables and well-defined observable quantities and neural structures [@cook2021neural]. Experimental validation of NPMs of this kind has to date mostly relied on human EEG data, capturing cortical excitatory neurons, leaving cortical inhibitory and thalamic populations unmeasured. Complementary data from LFPs and advanced recording technologies, such as combined electrophysiological and optical imaging in rodents, can address some of these limitations, albeit with substantial species differences. NPMs bridge microscopic and macroscopic brain states but involve assumptions and abstractions that may disconnect understanding across spatial scales [@goldman2019bridging;@huang2021novel;@cook2021neural]. NMMs assume uncorrelated neuron states within ensembles [@breakspear2017dynamic], neglecting within-population synchrony, which might impact observed EEG responses [@glomb2021computational]. The sigmoidal function used to transform membrane potential into firing rates is a phenomenological approximation [@huang2021novel;@byrne2020next], and individual neuron firing thresholds are thus not considered in these models.
 
 Despite these caveats, NPMs do effectively represent brain dynamics at the meso/macro scale observed in scalp EEG, offering simplicity and computational efficiency. They enable numerical simulations, parameter estimation, and analytical correspondences for insights into physiological mechanisms [@david2006mechanisms;@abeysuriya2014prediction;@momi2023tms]. In addition to limitations inherent to all NPMs, each of the four models also has its own advantages and limitations. JR has a constrained oscillatory range and requires an external drive for stable alpha oscillations, which could be considered to be inconsistent with the empirical observations that intrinsic alpha power is strongest during eye-closed states [@kiani2021realistic]. MDF includes self-inhibitory connections and spike-rate adaptation terms for higher frequency ranges, but uses parameters with limited biological relevance [@moran2007neural]. LW incorporates conductance-based elements like synaptic reversal potentials, enhancing neurobiological fidelity but increasing numerical instability [@liley2001spatially]. RRW approximates EPSPs and IPSPs with the same impulse response, which has been debated, though it can reproduce empirical features like the 1/f curve and different oscillatory frequencies across brain states and neuropathologies [@roberts2008modeling;@zhao2015generalized;@muller2017unified].
 
-
+:::
 :label: fig:Global_eval
 :align: center
-
-
-:::
-
-
+\usepackage{wrapfig}
 \begin{wraptable}{r}{10cm}
-
     \scriptsize
     \rowcolors{2}{gray!20}{gray!70!}
     \centering
@@ -489,8 +488,8 @@ Despite these caveats, NPMs do effectively represent brain dynamics at the meso/
     \caption*{**Table 3. _Global evaluation of the models._** Different features of the models are assessed, highlighting strengths and limitations. In terms of robustness and tractability, the JR and MDF models prove more suitable. LW incorporates more physiological elements, and RRW shows a stronger capability in reproducing empirical features of alpha activity.} 
     \label{tab:global_eval}
     {-0.5cm}
-
 \end{wraptable}
+:::
 
 A comparative analysis of these models (summarized in Table 3) reveals that the JR model shows robust global dynamics but has limitations in biological parameter significance and oscillatory range. The MDF model achieves higher frequency simulations but shares similar limitations. The LW and RRW models offer biologically associated parameters and a broad range of oscillatory frequencies, but robust global dynamics are challenging to demonstrate. The RRW model is promising for reproducing empirical features like the 1/f curve.
 
@@ -501,4 +500,3 @@ In conclusion, our comparative analysis of the JR, MDF, LW, and RRW models eluci
 
 Future studies of alpha rhythmogenesis in human EEG should investigate intracortical and corticothalamic models at the whole-brain scale. Mesoscale data from single neural populations alone may be insufficient to distinguish between these theories. A key objective should be to determine the role of the thalamus in generating resting state alpha oscillations, and more generally to adjudicate between the cortical and corticothalamic alpha theories. We hypothesize that topographic variation in oscillatory brain activity, as well as network-level connectivity and dynamics, will provide important additional information for this question. Whole-brain studies must consider each node's role in the larger network, as the dynamics of neural populations may change when interconnected via the connectome. Finally, improving validation methods against empirical data, for example by extending the number and type of EEG features used for model comparison and fitting, would allow for better differentiation between models and determination of which ones offer are more accurate representation of observed brain dynamics.
 
-\bibliography{references}
