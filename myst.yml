@@ -9,19 +9,6 @@ project:
       repo: neurolibre/mystical-article # Production will override this.
       ref: HEAD # Production will override this.
   authors:
-    - name: Agah Karakuzu
-      orcid: 0000-0001-7283-271X
-      affiliations: UToronto, CAMH
-      corresponding: true
-      email: agah.karakuzu@polymtl.ca
-      twitter: agahkarakuzu
-      equal_contributor: true
-      url: https://agah.dev
-      github: agahkarakuzu
-      roles:
-        - Conceptualization
-        - Software
-        - Writing – original draft
     - name: Sorenza P. Bastiaens
       orcid: 0009-0008-6665-1419
       affiliations: UToronto, CAMH
@@ -35,7 +22,7 @@ project:
       orcid: 0000-0002-1764-2179
       affiliations: UToronto, CAMH
       equal_contributor: true
-      email: john.griffiths@mail.utoronto.ca
+      email: john.griffiths@utoronto.ca
       url: https://www.grifflab.com 
       github: JohnGriffiths
       note: PENDING
@@ -43,7 +30,7 @@ project:
         - Project administration
         - Writing – review & editing
     - name: Davide Momi
-      affiliations: Standford University, CAMH
+      affiliations: CAMH, Stanford
       equal_contributor: true
       email: davide.momi@camh.ca
       github: Davi1990
@@ -56,17 +43,15 @@ project:
         - Writing – review & editing
   affiliations:
     - id: UToronto
-      institution: NeuroPoly Lab, Polytechnique Montreal
-      ror: https://ror.org/05f8d4e86
-      isni: 0000 0004 0435 3292
-      department: Electrical Engineering
-      address: 2500 Chem. de Polytechnique
-      city: Montreal
-      region: Quebec
+      institution: University of Toronto
+      department: Medical Sciences
+      address: 
+      city: Toronto
+      region: Ontario
       country: Canada
-      postal_code: H3T 1J4
-      phone: 1 (514) 340-4711
-    - id: StandfordUniversity
+      postal_code: 
+      phone: 
+    - id: Stanford
       institution: Stanford University Medical Center, Stanford
       ror: PENDING
       isni: PENDING
@@ -87,20 +72,11 @@ project:
       country: Canada
       postal_code: M5T 1R8
       phone: PENDING
-    - id: mhi
-      institution: Montreal Heart Institute
-      ror: https://ror.org/03vs03g62
-      isni: 0000 0000 8995 9090
-      address: 5000 Rue Belanger
-      city: Montreal
-      region: Quebec
-      country: Canada
-      postal_code: H1T 1C8
   keywords:
     - reproducible publishing
     - mystmd
     - next-gen preprints
-  github: https://github.com/neurolibre/mystical-article
+  github: https://github.com/GriffithsLab/BastiaensAlphaModels_NeuroLibre
   banner: static/banner.jpg
   venue: Neurolibre #Production will override this.
   subject: Living Preprint # Production will override this.
