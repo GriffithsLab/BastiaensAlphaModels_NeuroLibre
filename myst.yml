@@ -9,53 +9,74 @@ project:
       repo: neurolibre/mystical-article # Production will override this.
       ref: HEAD # Production will override this.
   authors:
-    - name: Sorenza Bastiaens
-      orcid: 0000-0001-7283-271X
+    - name: Sorenza P. Bastiaens
+      orcid: 0009-0008-6665-1419
       affiliations: UToronto, CAMH
       corresponding: true
-      email: agah.karakuzu@polymtl.ca
-      twitter: agahkarakuzu
+      email: sorenza.bastiaens@gmail.com
       equal_contributor: true
-      url: https://agah.dev
-      github: agahkarakuzu
       roles:
-        - Conceptualization
-        - Software
-        - Writing – original draft
+        - Paper author 
+        - Research Contribution
     - name: John D. Griffiths 
+      orcid: 0000-0002-1764-2179
       affiliations: UToronto, CAMH
       equal_contributor: true
-      github: roboneurolibre
-      note: Roboneuro is a friendly publishing bot who fails the Turing test.
+      email: john.griffiths@utoronto.ca
+      url: https://www.grifflab.com 
+      github: JohnGriffiths
+      note: PENDING
       roles:
         - Project administration
         - Writing – review & editing
+    - name: Davide Momi
+      affiliations: CAMH, Stanford
+      equal_contributor: true
+      email: davide.momi@camh.ca
+      github: Davi1990
+      url: https://davi1990.github.io/ 
+      twitter: DaveMomi
+      note: PENDING
+      roles:
+        - Methodology
+        - Data curation
+        - Writing – review & editing
   affiliations:
     - id: UToronto
-      institution: NeuroPoly Lab, Polytechnique Montreal
-      ror: https://ror.org/05f8d4e86
-      isni: 0000 0004 0435 3292
-      department: Electrical Engineering
-      address: 2500 Chem. de Polytechnique
-      city: Montreal
-      region: Quebec
+      institution: University of Toronto
+      department: Medical Sciences
+      address: 
+      city: Toronto
+      region: Ontario
       country: Canada
-      postal_code: H3T 1J4
-      phone: 1 (514) 340-4711
-    - id: mhi
-      institution: Montreal Heart Institute
-      ror: https://ror.org/03vs03g62
-      isni: 0000 0000 8995 9090
-      address: 5000 Rue Belanger
-      city: Montreal
-      region: Quebec
+      postal_code: 
+      phone: 
+    - id: Stanford
+      institution: Stanford University Medical Center, Stanford
+      ror: PENDING
+      isni: PENDING
+      department: Department of Psychiatry and Behavioral Sciences 
+      address: 401 Quarry Road, Stanford, CA
+      city: California
+      country: United States of America
+      postal_code: 94305-5717
+      phone: 1 (650) 723-6643
+    - id: CAMH
+      institution: Centre for Addiction and Mental Health
+      ror: PENDING
+      isni: PENDING
+      department: Krembil Centre for Neuroinformatics
+      address: 250 College Street
+      city: Toronto
+      region: Ontario
       country: Canada
-      postal_code: H1T 1C8
+      postal_code: M5T 1R8
+      phone: PENDING
   keywords:
     - reproducible publishing
     - mystmd
     - next-gen preprints
-  github: https://github.com/neurolibre/mystical-article
+  github: https://github.com/GriffithsLab/BastiaensAlphaModels_NeuroLibre
   banner: static/banner.jpg
   venue: Neurolibre #Production will override this.
   subject: Living Preprint # Production will override this.
