@@ -25,10 +25,24 @@ project:
     - name: John D. Griffiths 
       affiliations: UToronto, CAMH
       equal_contributor: true
-      github: roboneurolibre
-      note: Roboneuro is a friendly publishing bot who fails the Turing test.
+      email: john.griffiths@mail.utoronto.ca
+      url: https://www.grifflab.com 
+      github: JohnGriffiths
+      note: PENDING
       roles:
         - Project administration
+        - Writing – review & editing
+    - name: Davide Momi
+      affiliations: Standford University, CAMH
+      equal_contributor: true
+      email: davide.momi@camh.ca
+      github: Davi1990
+      url: https://davi1990.github.io/ 
+      twitter: DaveMomi
+      note: PENDING
+      roles:
+        - Methodology
+        - Data curation
         - Writing – review & editing
   affiliations:
     - id: UToronto
@@ -42,6 +56,27 @@ project:
       country: Canada
       postal_code: H3T 1J4
       phone: 1 (514) 340-4711
+    - id: StandfordUniversity
+      institution: Stanford University Medical Center, Stanford
+      ror: PENDING
+      isni: PENDING
+      department: Department of Psychiatry and Behavioral Sciences 
+      address: 401 Quarry Road, Stanford, CA
+      city: California
+      country: United States of America
+      postal_code: 94305-5717
+      phone: 1 (650) 723-6643
+    - id: CAMH
+      institution: Centre for Addiction and Mental Health
+      ror: PENDING
+      isni: PENDING
+      department: Krembil Centre for Neuroinformatics
+      address: 250 College Street
+      city: Toronto
+      region: Ontario
+      country: Canada
+      postal_code: M5T 1R8
+      phone: PENDING
     - id: mhi
       institution: Montreal Heart Institute
       ror: https://ror.org/03vs03g62
