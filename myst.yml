@@ -1,17 +1,17 @@
 # See docs at: https://mystmd.org/guide/frontmatter
 version: 1
 project:
-  title: 'Demystifying MyST: The most powerful preprint authoring tool'
-  subtitle: A template for reproducible preprints
+  title: 'A comprehensive investigation of intracortical and corticothalamic models of alpha rhythms'
+  subtitle: A reproducible preprint
   thebe:
     binder:
       url: https://binder-preview.conp.cloud # NeuroLibre binder URL, production will override this.
       repo: neurolibre/mystical-article # Production will override this.
       ref: HEAD # Production will override this.
   authors:
-    - name: Agah Karakuzu
+    - name: Sorenza Bastiaens
       orcid: 0000-0001-7283-271X
-      affiliations: polymtl; mhi
+      affiliations: UToronto, CAMH
       corresponding: true
       email: agah.karakuzu@polymtl.ca
       twitter: agahkarakuzu
@@ -22,8 +22,8 @@ project:
         - Conceptualization
         - Software
         - Writing – original draft
-    - name: Robo Neuro
-      affiliations: polymtl
+    - name: John D. Griffiths 
+      affiliations: UToronto, CAMH
       equal_contributor: true
       github: roboneurolibre
       note: Roboneuro is a friendly publishing bot who fails the Turing test.
@@ -31,7 +31,7 @@ project:
         - Project administration
         - Writing – review & editing
   affiliations:
-    - id: polymtl
+    - id: UToronto
       institution: NeuroPoly Lab, Polytechnique Montreal
       ror: https://ror.org/05f8d4e86
       isni: 0000 0004 0435 3292
