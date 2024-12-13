@@ -497,42 +497,8 @@ A comparative analysis of these models (summarized in Table 3) reveals that the 
 
 ## Conclusion and future work
 
-
-
 In conclusion, our comparative analysis of the JR, MDF, LW, and RRW models elucidates their mathematical formulations and parameters, providing a range of biological insights. Our novel simulations showed differing precision in replicating EEG alpha characteristics, highlighting the impact of rate constants and connectivity parameters on their dynamical behavior.
 
 Future studies of alpha rhythmogenesis in human EEG should investigate intracortical and corticothalamic models at the whole-brain scale. Mesoscale data from single neural populations alone may be insufficient to distinguish between these theories. A key objective should be to determine the role of the thalamus in generating resting state alpha oscillations, and more generally to adjudicate between the cortical and corticothalamic alpha theories. We hypothesize that topographic variation in oscillatory brain activity, as well as network-level connectivity and dynamics, will provide important additional information for this question. Whole-brain studies must consider each node's role in the larger network, as the dynamics of neural populations may change when interconnected via the connectome. Finally, improving validation methods against empirical data, for example by extending the number and type of EEG features used for model comparison and fitting, would allow for better differentiation between models and determination of which ones offer are more accurate representation of observed brain dynamics.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \bibliography{references}
-
-
-
-
-\end{document}
