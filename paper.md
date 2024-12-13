@@ -247,9 +247,13 @@ To assess the performance of each neural mass model, we estimated its characteri
 | LW      | 11.6     | 0.48         | 2.46          | Y         |
 | RRW     | 9.5      | 1.64         | 3.78          | Y         |
 | Empirical | ≈ 10   | 1.36         | 1.48          | Y         |
+```
+
 
 
 To summarize, the models demonstrate an underrepresentation of lower frequencies in JR and LW, and an overrepresentation in RRW. They all exhibit considerably steeper slopes for higher frequencies than the empirical average. This discrepancy may arise because the empirical values reflect an average across the cortex, while our models aim to capture the characteristic eyes-closed alpha peak, predominantly observed in the brain's posterior region. Visually, RRW appears to be the most similar to empirical resting state EEG, especially for the representation of 1/f in lower frequencies, which is not accounted for in the other models. Finally, consistent with empirical findings, all models have lower pre-peak 1/f values than post-peak 1/f values during EC, with higher frequencies displaying steeper slopes in posterior areas within the cortex.  
+
+
 
 
 #### _Eyes open vs. Eyes closed_
