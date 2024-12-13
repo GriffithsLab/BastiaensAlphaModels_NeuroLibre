@@ -4,6 +4,7 @@ In this paper we offer a renewed foundation for research on this question, by un
 With this established, we conduct explorations of rate constant and synaptic connectivity parameter spaces, with the aim of identifying common patterns in key behaviours, such as the role of excitatory-inhibitory interactions in the generation of oscillations. Finally, using linear stability analysis we identify two qualitatively different alpha-generating dynamical regimes across the models: i) noise-driven fluctuations, and ii) self-sustained limit-cycle oscillations, emerging due to an Andronov-Hopf bifurcation. The comprehensive survey and synthesis developed here can, we suggest, be used to help guide future theoretical and experimental work aimed at disambiguating these and other candidate theories of alpha rhythmogenesis.
  +++
 
+
 # Background
 
 ## Overview and aims
@@ -16,14 +17,13 @@ We focus on four extensively studied NPMs that are commonly used to describe EEG
 We begin over the next few sections with a description of general elements present in the JR, MDF, LW, and RRW models, and a summary of their individual  characteristics. Direct comparisons between each of them are then made, first in the context of the alpha regime, and then extending into other oscillatory regimes at non-alpha frequencies.
 A central objective in this work is to identify common patterns between the models, using numerical simulations across a broad parameter space to identify the effects of rate constants, inter-population connectivity structure, and other factors on oscillatory dynamics. These similarities and differences across models constitute the points of agreement and divergence across current theories of alpha rhythmogenesis, and it is the mapping of this theoretical landscape that is our main aim in the present paper. The origin, biological significance, and validity of their parameters, as well as the functional forms of their equations, are also considered when discussing the respective limitations and advantages of each candidate model. 
 
+
 ## Alpha origins and rhythmogenesis: current theories
 
 :::{figure} ../notes/latex2md_conversion/2024-12-12/01_Chapter/Images/Fig1__Overview_final.png
 :label: fig:Overview
 :align: center
-
 :::
-{-0.5cm}
 
 Neural oscillations are repetitive, quasiperiodic patterns of brain activity that are believed to play a key role in various sensory-cognitive processes [@pmid24174901]. In humans, oscillations are most commonly captured with EEG, a non-invasive neuroimaging modality that uses scalp-recording electrodes to capture large-scale neuroelectric activity with high temporal resolution. 
 
@@ -50,12 +50,10 @@ These two accounts describe the origin of alpha waves as a phenomenon relying on
 :::{figure}
 :label: fig:Theories
 :align: center
-
 ![](../static/Images/Figure2_theories.png)
 ![](../static/Images/Fig2__Theories.png)
-
 :::
-{-\baselineskip} 
+
 
 ## Bridging scales: mathematical modelling of mesoscopic neural population dynamics
 
