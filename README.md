@@ -1,5 +1,7 @@
 # Source Code for NeuroLibre Version of Bastiaens Et Al.
 
+View this repo's gh-pages hosted build [here](https://griffithslab.github.io/BastiaensAlphaModels_NeuroLibre/)
+
 Origins of content:
 
 - Github repo with modeling analysis code [here](https://github.com/GriffithsLab/Bastiaens2024_AlphaModels)
