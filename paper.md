@@ -18,7 +18,7 @@ A central objective in this work is to identify common patterns between the mode
 
 ## Alpha origins and rhythmogenesis: current theories
 
-:::{figure} ../static/Images/Fig1__Overview_final.png
+:::{figure} ../notes/latex2md_conversion/2024-12-12/Chapter_01/Images/Fig1__Overview_final.png
 :label: fig:Overview
 :align: center
 
